@@ -10,10 +10,15 @@ import Home from './Routes/Home';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route exact path='/' element={<Home/>} />
-        <Route exact path='/movie/:id' element={<Detail/>} />
+        {/* Develop */}
+        <Route exact path={`/`} element={<Home/>} />
+        <Route exact path={`/movie/:id`} element={<Detail/>} />
+
+        {/* Production */}
+        <Route exact path={`/`} element={<Home/>} />
+        <Route exact path={`/movie/:id`} element={<Detail/>} />
       </Routes>
     </Router>
   );

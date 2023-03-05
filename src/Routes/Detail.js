@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Movie from "../components/Movie";
+import styles from './Detail.module.css'
 
 
 
@@ -27,41 +28,28 @@ function Detail() {
             console.log(`not loaded`);
             return;
         }
-        // console.log(detail);
-        // console.log(detail.length);
-        // detail.map(item => console.log(`item: ${item}`))
     }, [detail])
 
 
 
     return (
-        <div>
-            {
-                /**
-                 * background_image_original
-                 * description_full
-                 * download_count
-                 * genres (map)
-                 * title
-                 * torrents (map)
-                 * year
-                 * yt_trailer_code
-                 */
-            }
-            {
-                !loading ? 
-                <h1>Loading detail...</h1> : 
-                <Movie
-                    bgImg={detail.background_image_original}
-                    title={detail.title}
-                    year={detail.year}
-                    description_full={detail.description_full}
-                    download_count={detail.download_count}
-                    genres={detail.genres}
-                    yt_trailer_code={detail.yt_trailer_code}
-                    torrents={detail.torrents}
-                />
-            }
+        <div className={styles.warpper} style={{background: detail.background_image_original}}>
+            <div className={styles.container}>
+                {
+                    !loading ?
+                        <h1 className={styles.loader}>Loading detail...</h1> :
+                        <Movie
+                            bgImg={detail.background_image_original}
+                            title={detail.title}
+                            year={detail.year}
+                            description_full={detail.description_full}
+                            download_count={detail.download_count}
+                            genres={detail.genres}
+                            yt_trailer_code={detail.yt_trailer_code}
+                            torrents={detail.torrents}
+                        />
+                }
+            </div>
         </div>
     )
 }
