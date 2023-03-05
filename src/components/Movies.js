@@ -12,12 +12,9 @@ function Movies({ id, coverImg, url, title, summary, genres }) {
             <img src={coverImg} className={styles.movies__img}></img>
 
             <div>
-                {/* Develop */}
-                {/* <Link to={`/movie/${id}`}><h2 className={styles.movies__title}>{title}</h2></Link> */}
 
                 <MarginV height={10} />
 
-                {/* Production */}
                 <Link to={`/movie/${id}`}><h2 className={styles.movies__title}>
                     {title}
                 </h2></Link>

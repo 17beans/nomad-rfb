@@ -12,11 +12,6 @@ function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        {/* Develop */}
-        <Route exact path={`/`} element={<Home/>} />
-        <Route exact path={`/movie/:id`} element={<Detail/>} />
-
-        {/* Production */}
         <Route exact path={`/`} element={<Home/>} />
         <Route exact path={`/movie/:id`} element={<Detail/>} />
       </Routes>
